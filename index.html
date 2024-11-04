@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/mortgage.css">
+  <script src="assets/js/mortgage.js" defer></script>
+  <title>Mortgage Repayment Calculator</title>
+</head>
+<body>
+  <div class="container">
+    <div class="container-inner">
+      <!-- Calculator Input Area Start -->
+      <div class="mortgageCalculator">
+        <div class="head-text">
+          <h2>Mortgage Calculator</h2>
+          <button id="clearBtn">Clear All</button>
+        </div>
+        <div class="card">
+          <!-- Amount Input Start  -->
+          <div class="amount input">
+            <h3>Mortgage Amount</h3>
+            <div class="input-amount">
+              <div class="amount-icon">£</div>
+              <input type="number" name="" id="amountInput" class="input-warn">
+            </div>
+            <div class="warn-text"></div>
+          </div>
+          <!-- Amount Input End  -->
+          <!-- Term Input Start  -->
+          <div class="term input">
+            <h3>Mortgage Term</h3>
+            <div class="input-term">
+              <input type="number" name="" id="termInput" class="input-warn">
+              <div class="term-icon">year</div>
+            </div>
+            <div class="warn-text"></div>
+          </div>
+          <!-- Term Input End  -->
+          <!-- Rate Input Start  -->
+          <div class="rate input">
+              <h3>Interest Rate</h3>
+              <div class="input-rate">
+                <input type="number" name="" id="rateInput" class="input-warn">
+                <div class="rate-icon">%</div>
+              </div>
+              <div class="warn-text"></div>
+          </div>
+          <!-- Rate Input End  -->
+          <!-- Type Area Start  -->
+          <div class="type">
+            <h3>Mortgage Type</h3>
+            <div class="repaymentTxt">
+              <input type="radio" id="repayment" name="option" class="input-warn">
+              <label>Repayment</label>
+            </div>
+            <div class="interestTxt">
+              <input type="radio" id="interest" name="option" class="input-warn">
+              <label>Interest Only</label>
+            </div>
+            <div class="warn-text"></div>
+          </div>
+          <!-- Type Area End  -->
+        </div>
+        <!-- Calculate Area Start  -->
+        <div class="calculateArea">
+          <button id="calcBtn">
+            <img src="assets/img/calculator-fill.svg" alt="Calculator Icon">
+            Calculate Repayments
+          </button>
+        </div>
+        <!-- Calculate Area End  -->
+      </div>
+      <!-- Calculator Input Area End -->
+      <!-- Shown Area Start -->
+        <div class="shownTxt">
+          <div class="shown-img">
+            <img src="assets/img/shown-img.svg" alt="Shown Area Image">
+          </div>
+          <div class="shown-content">
+            <h3>Results shown here</h3>
+            <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+          </div>
+        </div>
+      <!-- Shown Area End -->
+      <!-- Result Area Start -->
+        <div class="results">
+          <div class="head-result">
+            <h3>Your results</h3>
+            <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+          </div>
+          <div class="repayCont">
+            <div class="monthly-repay">
+              <h4>Your monthly repayments</h4>
+              <p class="monthly-price">£<span id="monthlyPrice"></span></p>
+            </div>
+            <div class="total-repay">
+              <h4>Total you'll repay over the term</h4>
+              <p class="total-price">£<span id="totalPrice"></span></p>
+            </div>
+          </div>
+        </div>
+        <!-- Result Area End -->
+    </div>
+  </div>
+</body>
+</html>
