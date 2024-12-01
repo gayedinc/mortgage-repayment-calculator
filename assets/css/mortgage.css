@@ -99,6 +99,7 @@ h6 {
   text-decoration: underline;
   border-style: none;
   background-color: #fff;
+  cursor: pointer;
 }
 
 .input input {
@@ -136,7 +137,7 @@ h6 {
 
 .c-yellow {
   background-color: #D8DB2F;
-  color: #fff;
+  color: #133041;
   border: 1px solid #D8DB2F;
 }
 
@@ -200,73 +201,83 @@ h6 {
   gap: 12px;
 }
 
+/* Radio input gizli */
 .type input[type="radio"] {
-  display: block;
+  display: none; /* Varsayılan radio butonunu gizler */
 }
 
-.type label {
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.type label::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #4E6E7E;
-  border-radius: 50%;
-  background-color: #fff;
-  transition: border-color 0.2s ease;
-}
-
-.type input[type="radio"]:checked + label::before {
-  border-color: #D8DB2F;
-  background-color: #D8DB2F;
-}
-
-.type input[type="radio"]:checked + label::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 50%;
-  width: 6px;
-  height: 10px;
-  border-width: 0 2px 2px 0;
-}
-
+/* Kutular için stil */
 .repaymentTxt, .interestTxt {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: 16px; /* Elemanlar arası boşluk */
   padding: 12px 16px;
-  border: 1px solid #6B94A8;
-  border-radius: 4px;
+  border: 1px solid #6B94A8; /* Varsayılan kenar rengi */
+  border-radius: 4px; /* Köşeleri yuvarla */
+  transition: all 0.2s ease;
 }
 
-.repaymentTxt p, .interestTxt p, .calculateArea button{
+/* Seçildiğinde div değişikliği */
+.repaymentTxt:has(input[type="radio"]:checked),
+.interestTxt:has(input[type="radio"]:checked) {
+  background-color: #f9fae0; /* Seçildiğinde arka plan */
+  border-color: #D8DB2F; /* Kenar rengi */
+}
+
+/* Label için genel stil */
+.type label {
+  position: relative;
+  cursor: pointer;
   font-size: 18px;
   line-height: 22.5px;
   font-weight: 700;
   color: #133041;
+  padding-left: 56px;
+  transition: all 0.2s ease;
+}
+
+/* Yuvarlak simge */
+.type label::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 1.8px solid #4E6E7E; /* Varsayılan kenar rengi */
+  border-radius: 50%; /* Yuvarlak görünüm */
+  background-color: #fff; /* İç renk */
+  background-size: cover; /* Görseli tam sığdır */
+  background-position: center; /* Görseli ortala */
+  transition: all 0.2s ease;
+}
+
+/* Seçildiğinde yuvarlak simge değişikliği */
+.type input[type="radio"]:checked + label::before {
+  border: transparent; /* Kenar rengi kaldır */
+  background-image: url('/assets/img/radio-image.svg'); /* Görsel yolu */
+  background-color: transparent; /* Arka plan rengini kaldır */
 }
 
 .calculateArea button {
-  background-color: #D8DB2F;
-  border-radius: 999px;
-  padding-block: 16px;
   display: flex;
-  gap: 12px;
-  border-style: none;
   width: 327px;
   justify-content: center;
+  gap: 12px;
+  padding-block: 16px;
+  color: #133041;
+  background-color: #D8DB2F;
+  border-radius: 999px;
+  border-style: none;
+  font-size: 18px;
+  line-height: 22.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.calculateArea button:hover {
+  background-color: #eced97;
 }
 
 .shownTxt, .results {
@@ -405,6 +416,11 @@ input[type="number"]::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .head-text {
+    display: flex;
+    justify-content: space-between;
   }
 }
 
