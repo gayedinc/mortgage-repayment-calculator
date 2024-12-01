@@ -128,10 +128,6 @@ h6 {
   border-style: none;
 }
 
-.warn-text {
-  color: #D73328;
-}
-
 .c-red {
   background-color: #D73328;
   color: #fff;
@@ -142,6 +138,20 @@ h6 {
   background-color: #E4F4FD;
   border: 1px solid #6B94A8;
   color: #4E6E7E;
+}
+
+/* Hatalı giriş yapıldığında hata mesajını göster */
+.warn-text.error-msg {
+  display: inline;
+  color: #D73328;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+/* Hata mesajlarını ilk başta gizle */
+.warn-text.error-msg {
+  display: none;
 }
 
 .term input{
@@ -321,6 +331,13 @@ h6 {
   color: #fff;
 }
 
+/* Number input'larındaki spinner'ı gizler */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Tablet Start */
 
 @media (width > 375px) {
@@ -367,6 +384,21 @@ h6 {
 
   .head-result {
     margin-bottom: 40px;
+  }
+
+  .input-bottom {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .input-rate, .input-term {
+    width: 292px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -417,5 +449,13 @@ h6 {
   .results {
     max-width: 504px;
     text-align: left;
+  }
+
+  .input-rate, .input-term {
+    width: 200px;
+  }
+
+  .term input, .rate input {
+    width: 120px;
   }
 }

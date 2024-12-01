@@ -26,31 +26,7 @@ function handleRate() {
 document.querySelector('.input-amount').classList.add('c-blue');
 document.querySelector('.input-rate').classList.add('c-blue');
 document.querySelector('.input-term ').classList.add('c-blue');
-const warnTexts = document.querySelectorAll('.warn-text');
-const inputWarns = document.querySelectorAll('.input-warn');
 
-// let redInputs = [];
-
-function isRed() {
-  for (const warns of warnTexts) {
-    // if (amountInput.value !== "" || termInput.value !== "" || rateInput.value !== "") {
-    //   console.log('uyarı 1')
-    //   document.querySelector('.amount-icon').classList.add('c-blue');
-
-    //   document.querySelector('.term-icon').classList.add('c-blue');
-
-    //   document.querySelector('.rate-icon').classList.add('c-blue');
-    // } else {
-    //   console.log('uyarı')
-    // }
-    for (const input of inputWarns) {
-      if (input.value === '') {
-        console.log('warn')
-        this.innerHTML = 'cant be zero'
-      }
-    }
-  }
-}
 
 let totalRate = 0; //toplam faiz
 let totalRepay = 0; //toplam geri ödeme
@@ -60,10 +36,13 @@ function handleCalc() {
   if (amountInput.value === "" || termInput.value === "" || rateInput.value === "") {
 
     document.querySelector('.amount-icon').classList.remove('c-blue');
+    document.querySelector('.amount .error-msg').style.display = 'inline';
 
     document.querySelector('.term-icon').classList.remove('c-blue');
+    document.querySelector('.term .error-msg').style.display = 'inline';
 
     document.querySelector('.rate-icon').classList.remove('c-blue');
+    document.querySelector('.rate .error-msg').style.display = 'inline';
 
     document.querySelector('.input-amount').classList.remove('c-blue');
     document.querySelector('.input-amount').classList.add('c-red');
@@ -74,19 +53,12 @@ function handleCalc() {
     document.querySelector('.input-rate').classList.remove('c-blue');
     document.querySelector('.input-rate').classList.add('c-red');
 
-    document.querySelector('.results').classList.add('d-blok');
+    document.querySelector('.type .error-msg').style.display = 'inline';
+
     document.querySelector('.results').classList.add('d-blok');
 
     document.querySelector('.shownTxt').classList.add('d-blok');
     document.querySelector('.results').classList.add('d-none');
-
-    // for (const gaye of gayes) {
-    //   if (gaye.value === "") {
-    //     console.log('yok')
-    //     warnText.innerHTML = 'yok';
-    //   }
-    // }
-    isRed();
 
   } else {
     monthlyRate = Number(rateInput.value) / 100 / 12;

@@ -20,36 +20,43 @@
           <button id="clearBtn">Clear All</button>
         </div>
         <div class="card">
-          <!-- Amount Input Start  -->
-          <div class="amount input">
-            <h3>Mortgage Amount</h3>
-            <div class="input-amount">
-              <div class="amount-icon">£</div>
-              <input type="number" name="" id="amountInput" class="input-warn">
-            </div>
-            <div class="warn-text"></div>
-          </div>
-          <!-- Amount Input End  -->
-          <!-- Term Input Start  -->
-          <div class="term input">
-            <h3>Mortgage Term</h3>
-            <div class="input-term">
-              <input type="number" name="" id="termInput" class="input-warn">
-              <div class="term-icon">year</div>
-            </div>
-            <div class="warn-text"></div>
-          </div>
-          <!-- Term Input End  -->
-          <!-- Rate Input Start  -->
-          <div class="rate input">
-              <h3>Interest Rate</h3>
-              <div class="input-rate">
-                <input type="number" name="" id="rateInput" class="input-warn">
-                <div class="rate-icon">%</div>
+          <form class="card-input" id="cardForm" autocomplete="off">
+            <!-- Amount Input Start -->
+            <div class="amount input">
+              <h3>Mortgage Amount</h3>
+              <div class="input-amount">
+                <label for="amountInput" class="amount-icon">£</label>
+                <input type="number" name="amount" id="amountInput" class="input-warn">
               </div>
-              <div class="warn-text"></div>
-          </div>
-          <!-- Rate Input End  -->
+              <div class="warn-text error-msg">This field is required</div>
+            </div>
+            <!-- Amount Input End -->
+          
+            <div class="input-bottom">
+              <!-- Term Input Start -->
+              <div class="term input">
+                <h3>Mortgage Term</h3>
+                <div class="input-term">
+                  <input type="number" name="term" id="termInput" class="input-warn">
+                  <label for="termInput" class="term-icon">years</label>
+                </div>
+                <div class="warn-text error-msg">This field is required</div>
+              </div>
+              <!-- Term Input End -->
+          
+              <!-- Rate Input Start -->
+              <div class="rate input">
+                <h3>Interest Rate</h3>
+                <div class="input-rate">
+                  <input type="number" name="rate" id="rateInput" class="input-warn">
+                  <label for="rateInput" class="rate-icon">%</label>
+                </div>
+                <div class="warn-text error-msg">This field is required</div>
+              </div>
+              <!-- Rate Input End -->
+            </div>
+          </form>
+          
           <!-- Type Area Start  -->
           <div class="type">
             <h3>Mortgage Type</h3>
@@ -61,7 +68,7 @@
               <input type="radio" id="interest" name="option" class="input-warn">
               <label>Interest Only</label>
             </div>
-            <div class="warn-text"></div>
+            <div class="warn-text error-msg">This field is required</div>
           </div>
           <!-- Type Area End  -->
         </div>
