@@ -134,6 +134,12 @@ h6 {
   border: 1px solid #D73328;
 }
 
+.c-yellow {
+  background-color: #D8DB2F;
+  color: #fff;
+  border: 1px solid #D8DB2F;
+}
+
 .c-blue {
   background-color: #E4F4FD;
   border: 1px solid #6B94A8;

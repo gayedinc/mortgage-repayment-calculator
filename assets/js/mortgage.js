@@ -34,7 +34,7 @@ let monthlyPay = 0; // aylık ödeme
 
 function handleCalc() {
   if (amountInput.value === "" || termInput.value === "" || rateInput.value === "") {
-
+    // Hata mesajlarını ve inputları kırmızıya dönüştür
     document.querySelector('.amount-icon').classList.remove('c-blue');
     document.querySelector('.amount .error-msg').style.display = 'inline';
 
@@ -55,21 +55,39 @@ function handleCalc() {
 
     document.querySelector('.type .error-msg').style.display = 'inline';
 
-    document.querySelector('.results').classList.add('d-blok');
-
-    document.querySelector('.shownTxt').classList.add('d-blok');
+    // Results kısmını gizle
     document.querySelector('.results').classList.add('d-none');
 
+    // ShownTxt'yi göster
+    document.querySelector('.shownTxt').classList.remove('d-none');
+    document.querySelector('.shownTxt').classList.add('d-blok');
   } else {
+    // Hesaplama işlemleri
     monthlyRate = Number(rateInput.value) / 100 / 12;
-    totalMonthlyPayNumber = Number((termInput.value) * 12)
-    monthlyPay = (Number(amountInput.value) * monthlyRate) / (1 - Math.pow((1 + monthlyRate), -totalMonthlyPayNumber));
+    totalMonthlyPayNumber = Number((termInput.value) * 12);
+    monthlyPay = (Number(amountInput.value) * monthlyRate) / (1 - Math.pow((1 + monthlyRate), - totalMonthlyPayNumber));
     totalRepay = Number(monthlyPay * totalMonthlyPayNumber);
     monthlyPrice.innerText = monthlyPay.toFixed(2);
     totalPrice.innerText = totalRepay.toFixed(2);
 
-    document.querySelector('.shownTxt').classList.add('d-none');
-    document.querySelector('.results').classList.add('d-blok');
+    // Hata mesajlarını ve inputları sarıya dönüştür
+    document.querySelector('.input-amount').classList.remove('c-blue');
+    document.querySelector('.input-term').classList.remove('c-blue');
+    document.querySelector('.input-rate').classList.remove('c-blue');
+
+    document.querySelector('.amount .error-msg').style.display = 'none';
+    document.querySelector('.term .error-msg').style.display = 'none';
+    document.querySelector('.rate .error-msg').style.display = 'none';
+    document.querySelector('.type .error-msg').style.display = 'none';
+
+    document.querySelector('.input-amount').classList.add('c-yellow');
+    document.querySelector('.input-term').classList.add('c-yellow');
+    document.querySelector('.input-rate').classList.add('c-yellow');
+
+    // Results'ı göster
+    document.querySelector('.shownTxt').classList.add('d-none'); // shownTxt'yi gizle
+    document.querySelector('.results').classList.remove('d-none'); // results'ı göster
+    document.querySelector('.results').classList.add('d-blok'); // results'ı bloğa al
   }
 }
 
