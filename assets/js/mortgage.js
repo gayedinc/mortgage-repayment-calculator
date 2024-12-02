@@ -22,7 +22,6 @@ function handleCalc() {
     document.querySelector('.input-amount').classList.add('c-red');
     isValid = false;
   } else {
-    // hata mesajını gizle ve sadece c-yellow sınıfını ekle
     document.querySelector('.amount-icon').classList.remove('c-blue');
     document.querySelector('.amount .error-msg').style.display = 'none';
     document.querySelector('.input-amount').classList.remove('c-red');
@@ -38,7 +37,6 @@ function handleCalc() {
     document.querySelector('.input-term').classList.add('c-red');
     isValid = false;
   } else {
-    // hata mesajını gizle ve c-yellow sınıfını ekle
     document.querySelector('.term-icon').classList.remove('c-blue');
     document.querySelector('.term .error-msg').style.display = 'none';
     document.querySelector('.input-term').classList.remove('c-red');
@@ -54,7 +52,6 @@ function handleCalc() {
     document.querySelector('.input-rate').classList.add('c-red');
     isValid = false;
   } else {
-    // hata mesajını gizle ve sadece c-yellow sınıfını ekle
     document.querySelector('.rate-icon').classList.remove('c-blue');
     document.querySelector('.rate .error-msg').style.display = 'none';
     document.querySelector('.input-rate').classList.remove('c-red');
@@ -99,11 +96,22 @@ function handleCalc() {
     document.querySelector('.shownTxt').classList.add('d-none');
     document.querySelector('.results').classList.remove('d-none');
     document.querySelector('.results').classList.add('d-blok');
+
+    // "Clear All" butonunu "Return" butonuna çevirmek için
+    const clearBtn = document.querySelector('#clearBtn'); // Clear butonu seçtim
+    clearBtn.innerHTML = 'Return'; // buton metnini 'Return' olarak değiştirdim
+
+    // return butonuna tıklandığında ana sayfaya yönlendirmek için
+    clearBtn.onclick = function () {
+      window.location.href = '/';
+    };
   } else {
     // geçersizse sonuçları gizle
     document.querySelector('.results').classList.add('d-none');
   }
 }
+
+
 
 function handleClear() {
   // tüm input değerlerini boşalt
